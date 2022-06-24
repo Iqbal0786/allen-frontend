@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react'
 import {useSelector} from "react-redux"
 export default function Home() {
     const {optionData} =useSelector((store)=>store.options)
-    console.log(optionData);
+
   
   return (
    <>

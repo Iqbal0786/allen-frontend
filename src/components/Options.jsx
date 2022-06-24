@@ -32,9 +32,15 @@ export default function Options() {
           dispatch(get_options(test?.examination?.NEET?.subject?.chemistry))
       }
         }
+        else{
+          alert("Please select the options")
+          return 
+        }
    
     navigate("/")
   }
+ 
+  
   React.useEffect(()=>{
     axios.get("http://localhost:8888/examinations").then((res)=>{
          setTest({...test,...res.data[0]})

@@ -22,7 +22,7 @@ export const logoutUser = () => ({ type: LOGOUT})
 export const loginSuccessData = (data,toast ,navigate ) => (dispatch) => {
 
     dispatch(loginLoding());
-    axios.post("http://localhost:8888/login", data).then(({ data }) => {
+    axios.post("https://allen-db.herokuapp.com/login", data).then(({ data }) => {
         dispatch(loginSuccess(data))
         console.log(data)
         toast.success("Logged in Successfully", {

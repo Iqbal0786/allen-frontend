@@ -31,11 +31,6 @@ let score=0
      for(let j=0;j<answer.length;j++){
       if(i==answer[j].questionId){
         let temp=optionData.easy[i].correctIndex
-        // if(optionData.easy[i][temp]==answer[j].answervalue){
-          
-        //   score++
-        // }
-     //   console.log(temp)
       if(optionData.easy[i].answers[temp]==answer[j].answervalue){
         score++
       }

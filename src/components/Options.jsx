@@ -42,7 +42,7 @@ export default function Options() {
  
   
   React.useEffect(()=>{
-    axios.get("http://localhost:8888/examinations").then((res)=>{
+    axios.get("https://allen-db.herokuapp.com/examinations").then((res)=>{
          setTest({...test,...res.data[0]})
     }).catch((err)=>{
        console.log(err.message);

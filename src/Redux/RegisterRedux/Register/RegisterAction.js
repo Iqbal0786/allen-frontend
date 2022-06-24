@@ -11,7 +11,7 @@ export const RegisterHandler=(data,notify,notify2,navigate)=>(dispatch)=>{
 
           dispatch(register_loading())
     axios
-    .post("http://localhost:8888/register", data)
+    .post("https://allen-db.herokuapp.com/register", data)
     .then((res) => {
       if (res) {
           dispatch(register_success(res.data))

@@ -37,7 +37,7 @@ export default function Options() {
           return 
         }
    
-    navigate("/")
+    navigate("/home")
   }
  
   

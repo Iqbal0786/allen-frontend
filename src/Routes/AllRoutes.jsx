@@ -8,10 +8,10 @@ export default function AllRoutes() {
   return (
    <>
    <Routes>
-    <Route path='/' element={<Home/>}/>
+    <Route path='/home' element={<Home/>}/>
     <Route path='/Login' element={<SignIn/>}/>
     <Route path='/register' element={<SignUp/>}/>
-    <Route path='/options' element={<Options/>}/>
+    <Route path='/' element={<Options/>}/>
    </Routes>
    </>
   )

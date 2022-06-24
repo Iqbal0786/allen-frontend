@@ -13,11 +13,15 @@ import {
 } from "@mui/material";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { get_score } from "../Redux/OptionsRedux/optionsConstant";
 import { SignIn } from "./SignIn";
 export default function Home() {
   const { optionData } = useSelector((store) => store.options);
   const logdata = useSelector((store) => store.logInData);
+  const dispatch=useDispatch();
+  const navigate=useNavigate()
   const [value, setValue] = React.useState("");
  // const [score, setScore] = useState(0);
   let answer = [];
@@ -38,7 +42,8 @@ let score=0
       }
      }
    }
-   console.log(score)
+   dispatch(get_score(score))
+   navigate("/submission")
  }
   console.log(value);
   console.log(optionData);
@@ -54,7 +59,9 @@ let score=0
         {optionData.easy.map((e, i) => {
           return <SingleOption data={e} i={i} answer={answer} />;
         })}
-        <Button variant="outlined" onClick={getScore}>Submit</Button>
+        <Button variant="contained" onClick={getScore} sx={{width:"40%" , marginLeft:"35%",
+      marginTop:"20px" , marginBottom:"100px"
+      }}>Submit</Button>
       </Box>
     </>
   ) : (

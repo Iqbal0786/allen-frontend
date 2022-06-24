@@ -10,8 +10,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Link  ,useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import axios from "axios";
-import { RegisterHandler } from "../Redux/RegisterRedux/Register/RegisterAction";
+// import { RegisterHandler } from "../Redux/RegisterRedux/Register/RegisterAction";
 export const SignUp = () => {
   const navigate=useNavigate();
   const dispatch= useDispatch()
@@ -60,7 +59,7 @@ export const SignUp = () => {
         }
       );
     } else {
-       dispatch(RegisterHandler(data,notify,notify2,navigate))
+      //dispatch(RegisterHandler(data,notify,notify2,navigate))
     }
   };
   return (

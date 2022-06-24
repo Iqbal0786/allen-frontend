@@ -4,7 +4,7 @@ import { styled } from '@mui/system';
 import { AppBar, Box, Button, FormControl, InputLabel, MenuItem, Select, Toolbar, Typography } from '@mui/material';
 import {useNavigate } from "react-router-dom"
 import {useDispatch } from "react-redux"
-import { get_options } from '../Redux/OptionsRedux/optionsConstant';
+import { get_exam_details, get_options } from '../Redux/OptionsRedux/optionsConstant';
 import {useSelector} from "react-redux"
 import axios from 'axios';
 export default function Options() {
@@ -31,12 +31,14 @@ export default function Options() {
         else if(data.exam=="NEET" && data.subject=="chemistry"){
           dispatch(get_options(test?.examination?.NEET?.subject?.chemistry))
       }
+     
         }
         else{
           alert("Please select the options")
           return 
         }
-   
+
+        dispatch(get_exam_details(data))
     navigate("/home")
   }
  

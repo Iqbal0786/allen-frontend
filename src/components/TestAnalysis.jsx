@@ -3,9 +3,9 @@ import React from 'react'
 import { useSelector } from 'react-redux';
 
 export default function TestAnalysis() {
-    const { optionData , score} = useSelector((store) => store.options);
+    const { optionData , score ,examDetails} = useSelector((store) => store.options);
     const logdata = useSelector((store) => store.logInData);
-    console.log(optionData);
+    console.log(examDetails);
   return (
    <>
    <Box
@@ -13,8 +13,13 @@ export default function TestAnalysis() {
    padding:"20px" , textAlign:"center"
 }}
    >
-    <Typography> Final Score : {score} out of 10</Typography>
+    <Typography sx={{fontFamily:"revert" , marginBottom:"10px" , fontSize:"19px"}}> Result of {logdata.user.user.firstName} {logdata.user.user.lastName}</Typography>
+    <Typography sx={{fontFamily:"revert" , marginBottom:"10px" , fontSize:"19px"}}> Examination type : {examDetails.exam}</Typography>
+    <Typography sx={{fontFamily:"revert" , marginBottom:"10px" , fontSize:"19px"}}> Selected Paper : {examDetails.subject}</Typography>
+    <Typography sx={{fontFamily:"revert" , marginBottom:"10px" , fontSize:"19px"}}> Final Score : {score} out of 10</Typography>
 
+    <Typography>Practice more to improve yourself </Typography>
+    <Typography>Happy Learning :) </Typography>
    </Box>
    </>
   )

@@ -21,7 +21,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 import { useState } from "react";
 import { Link } from "react-router-dom";
-// import { loginSuccessData } from "../Redux/LogInRedux/LogAction";
+import { loginSuccessData } from "../Redux/LogInRedux/LogAction";
 export const SignIn = () => {
   const dispatch= useDispatch()
   const navigate=useNavigate()
@@ -52,7 +52,7 @@ export const SignIn = () => {
         }
       );
     } else {
-    // dispatch(loginSuccessData(data,toast,navigate))
+    dispatch(loginSuccessData(data,toast,navigate))
     }
   };
 

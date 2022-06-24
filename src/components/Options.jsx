@@ -6,16 +6,43 @@ import {useNavigate } from "react-router-dom"
 import {useDispatch } from "react-redux"
 import { get_options } from '../Redux/OptionsRedux/optionsConstant';
 import {useSelector} from "react-redux"
+import axios from 'axios';
 export default function Options() {
     const navigate=useNavigate();
     const dispatch=useDispatch();
-    const data2 =useSelector((store)=>store.options)
 
   const [data, setData] = React.useState({
     exam:"",
     subject:""
   });
-  console.log(data2)
+  const [test,setTest]=React.useState({})
+  const handleChange=()=>{
+    if(data.exam && data.subject){
+          if(data.exam=="JEE_MAIN" && data.subject=="physics"){
+          
+            dispatch(get_options(test?.examination?.JEE_MAIN?.subject?.physics))
+         }
+         else if(data.exam=="JEE_MAIN" && data.subject=="chemistry"){
+          dispatch(get_options(test?.examination?.JEE_MAIN?.subject?.chemistry))
+        }
+        else if(data.exam=="NEET" && data.subject=="physics"){
+          dispatch(get_options(test?.examination?.NEET?.subject?.physics))
+      }
+        else if(data.exam=="NEET" && data.subject=="chemistry"){
+          dispatch(get_options(test?.examination?.NEET?.subject?.chemistry))
+      }
+        }
+   
+    navigate("/")
+  }
+  React.useEffect(()=>{
+    axios.get("http://localhost:8888/examinations").then((res)=>{
+         setTest({...test,...res.data[0]})
+    }).catch((err)=>{
+       console.log(err.message);
+    })
+ },[])
+ console.log(test)
   return (
     <>
     <AppBar sx={{marginBottom:"100px"}}>
@@ -59,8 +86,7 @@ export default function Options() {
       <Button variant='outlined' sx={{width:"80%" ,heigth:"150px" , marginTop:"40px"}}
       
        onClick={()=>{
-              dispatch(get_options(data))
-           navigate("/")
+             handleChange();
        }}>Next</Button>
       </Box>
     </Box>
